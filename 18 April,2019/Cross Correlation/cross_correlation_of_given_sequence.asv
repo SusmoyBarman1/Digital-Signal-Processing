@@ -1,0 +1,48 @@
+% Here is an error
+
+x=[2,-1,3,7,1,2,-3];
+y=[1,-1,2,-2,4,1,-2,5];
+y_len = length(y);
+x_len = length(x);
+
+r = zeros(1,50);
+
+l=8;
+mul=1;
+sum=0;
+while l<7
+    iter = 1;
+    while iter <= x_len
+        if iter-l < 1
+            mul = x(iter) * 0;
+        else
+            mul = x(iter) * y(iter);
+        end;
+        sum = mul + sum;
+        iter = iter + 1;
+    end;
+    r(l)=sum;
+    sum = 0;
+    l = l + 1;
+end;
+    
+l = 7;
+mul=1;
+sum=0;
+while l>0
+    iter = 1;
+    while iter <= x_len
+        if iter-l > y_len
+            mul = x(iter) * 0;
+        else
+            mul = x(iter) * y(iter-l);
+        end;
+        sum = mul + sum;
+        iter = iter + 1;
+    end;
+    r(l) = sum;
+    sum
+    sum = 0;
+    l = l - 1;
+end;      
+
